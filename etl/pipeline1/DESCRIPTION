@@ -1,9 +1,10 @@
 Package: pipeline1
-Title: What the Package Does (one line, title case)
-Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-Depends: R (>= 3.4.4)
+Title: Example data pipeline in R
+Version: 0.1.0
+Authors@R: person("Ryan", "Price", email = "ryapric@gmail.com", role = c("aut", "cre"))
+Description: This package
+Depends:
+    R (>= 3.4.4)
 Imports:
     DBI,
     dplyr,

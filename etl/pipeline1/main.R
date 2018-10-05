@@ -1,7 +1,7 @@
 library(pipeline1)
 
-df_0 <- read_pg(db = "example", tbl = "")
+df_0 <- read_pg(db = "postgres", tbl = "iris")
 
-df_1 <- transform(df_0)
+df_1 <- prep(df_0, how = "iris")
 
-write_mysql(df_1, db = "", tbl = "")
+write_pg(df_1, db = "postgres", tbl = "iris")
