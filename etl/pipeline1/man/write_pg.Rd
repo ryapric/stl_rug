@@ -11,7 +11,7 @@ write_pg(df_out, db, tbl_name)
 
 \item{db}{Database name, passed as a string.}
 
-\item{tbl}{Table name, passed as a string.}
+\item{tbl_name}{Table name, passed as a string.}
 }
 \description{
 Given a database \code{db} and a table \code{tbl}, returns a \code{data.frame}.
