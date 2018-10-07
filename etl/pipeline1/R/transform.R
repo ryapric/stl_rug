@@ -8,6 +8,21 @@
 #'
 #' @export
 prep <- function(df_in, how) {
+    colnames(df_0) <- tolower(colnames(df_0))
+
+    df_long <- df_0 %>%
+        gather(., key = region, value = sales, contains("sales"))
+
+    platform_share <- df_long %>%
+        group_by(region, platform, year) %>%
+        summarize(sales = sum(sales, na.rm = TRUE)) %>%
+        group_by(region, platform, year) %>%
+        mutate(
+            mkt_share = (sales / sum(sales, na.rm = TRUE))) %>%
+        ungroup()
+
+
+
     df_out <- wtl_cast(df_in)
     df_out <- agg()
 }

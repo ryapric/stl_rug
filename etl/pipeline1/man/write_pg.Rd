@@ -4,7 +4,7 @@
 \alias{write_pg}
 \title{Write to a PostgreSQL database connection}
 \usage{
-write_pg(df_out, db, tbl_name)
+write_pg(df_out, db, tbl_name, ...)
 }
 \arguments{
 \item{df_out}{Data frame to write as a DB table.}

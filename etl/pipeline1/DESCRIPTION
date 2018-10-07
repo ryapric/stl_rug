@@ -17,7 +17,8 @@ Imports:
     here,
     magrittr,
     RPostgres,
-    RSQLite
+    RSQLite,
+    tiydr
 Suggests:
     devtools,
     knitr,
