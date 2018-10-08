@@ -5,10 +5,14 @@ get_shares <- function(df_in) {
     df_out <- df_in %>%
         group_by(region, platform, year) %>%
         summarize(sales = sum(sales, na.rm = TRUE)) %>%
-        group_by(region, platform) %>%
+        group_by(region, year) %>%
         mutate(
             mkt_share = (sales / sum(sales, na.rm = TRUE))) %>%
         ungroup()
+    # Uncomment the following line to force validation failure
+    # df_out$mkt_share[25] <- 1.05
+    validate_get_shares(df_out)
+    df_out
 }
 
 
