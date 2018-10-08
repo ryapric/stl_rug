@@ -4,14 +4,16 @@
 \alias{prep}
 \title{Clean & prepare XYZ data}
 \usage{
-prep(df_in, how)
+prep(df_in)
 }
 \arguments{
 \item{df_in}{Data frame of XYZ data}
-
-\item{how}{How should the data be prepared, i.e. defined by which soure's
-transormation logic?}
+}
+\value{
+A named \code{list} of \code{data.frame}s, where the element names serve as the
+name of each table in the target database.
 }
 \description{
 Given the XYZ data, prepares it according to your predefined business logic.
+Note that this returns a named \code{list} of \code{data.frame}s.
 }

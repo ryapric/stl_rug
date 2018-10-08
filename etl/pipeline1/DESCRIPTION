@@ -14,11 +14,10 @@ Depends:
 Imports:
     DBI,
     dplyr,
-    here,
     magrittr,
     RPostgres,
     RSQLite,
-    tiydr
+    tidyr
 Suggests:
     devtools,
     knitr,

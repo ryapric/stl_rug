@@ -4,14 +4,14 @@
 \alias{write_pg}
 \title{Write to a PostgreSQL database connection}
 \usage{
-write_pg(df_out, db, tbl_name, ...)
+write_pg(df_list, db, ...)
 }
 \arguments{
-\item{df_out}{Data frame to write as a DB table.}
+\item{df_list}{Data frame to write as a DB table.}
 
 \item{db}{Database name, passed as a string.}
 
-\item{tbl_name}{Table name, passed as a string.}
+\item{...}{Other args passed on to \code{\link[DBI:dbWriteTable]{DBI::dbWriteTable()}}.}
 }
 \description{
 Given a database \code{db} and a table \code{tbl}, returns a \code{data.frame}.

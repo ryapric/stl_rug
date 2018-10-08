@@ -1,36 +1,37 @@
+#' Find market share of unit sales over time
+#'
+#' @param df_in Long-format data frame of video game sales
+get_shares <- function(df_in) {
+    df_out <- df_in %>%
+        group_by(region, platform, year) %>%
+        summarize(sales = sum(sales, na.rm = TRUE)) %>%
+        group_by(region, platform) %>%
+        mutate(
+            mkt_share = (sales / sum(sales, na.rm = TRUE))) %>%
+        ungroup()
+}
+
+
 #' Clean & prepare XYZ data
 #'
 #' Given the XYZ data, prepares it according to your predefined business logic.
+#' Note that this returns a named `list` of `data.frame`s.
 #'
 #' @param df_in Data frame of XYZ data
-#' @param how How should the data be prepared, i.e. defined by which soure's
-#'   transormation logic?
+#'
+#' @return A named `list` of `data.frame`s, where the element names serve as the
+#'   name of each table in the target database.
 #'
 #' @export
-prep <- function(df_in, how) {
+prep <- function(df_in) {
     colnames(df_0) <- tolower(colnames(df_0))
 
     df_long <- df_0 %>%
         gather(., key = region, value = sales, contains("sales"))
 
-    platform_share <- df_long %>%
-        group_by(region, platform, year) %>%
-        summarize(sales = sum(sales, na.rm = TRUE)) %>%
-        group_by(region, platform, year) %>%
-        mutate(
-            mkt_share = (sales / sum(sales, na.rm = TRUE))) %>%
-        ungroup()
+    df_list <- list()
 
+    df_list$platform_share <- get_shares(df_long)
 
-
-    df_out <- wtl_cast(df_in)
-    df_out <- agg()
-}
-
-
-#' Cast Wide to Long on data
-wtl_cast <- function(df_in) {
-    df_out <- gather(df_in, YADDA, YADDA)
-    validate_wtl_cast(df_out)
-    df_out
+    df_list
 }
