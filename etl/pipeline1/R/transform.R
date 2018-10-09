@@ -16,6 +16,21 @@ get_shares <- function(df_in) {
 }
 
 
+#' Find total annual unit sales by platform
+#'
+#' @param df_in Long-format data frame of video game sales
+get_annual_sales <- function(df_in) {
+    df_out <- df_in %>%
+        group_by(region, platform, year) %>%
+        summarize(sales = sum(sales, na.rm = TRUE)) %>%
+        ungroup()
+    # Uncomment the following line to force validation failure
+    # df_out$sales[25] <- 1000000000000000
+    # validate_get_annual_sales(df_out)
+    df_out
+}
+
+
 #' Clean & prepare XYZ data
 #'
 #' Given the XYZ data, prepares it according to your predefined business logic.
@@ -36,6 +51,7 @@ prep <- function(df_in) {
     df_list <- list()
 
     df_list$platform_share <- get_shares(df_long)
+    df_list$annual_sales <- get_annual_sales(df_long)
 
     df_list
 }

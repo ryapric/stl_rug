@@ -4,10 +4,12 @@
 \alias{write_pg}
 \title{Write to a PostgreSQL database connection}
 \usage{
-write_pg(df_list, db, ...)
+write_pg(df_out, tbl_name, db, ...)
 }
 \arguments{
-\item{df_list}{Data frame to write as a DB table.}
+\item{df_out}{Data frame to write as a DB table.}
+
+\item{tbl_name}{Resultant table name in target database, passed as a string.}
 
 \item{db}{Database name, passed as a string.}
 
