@@ -5,7 +5,8 @@ In order to properly follow along with this example, you will need the following
 installed:
 
 1. R, and the `devtools` package
-1. Required dependencies for the R package `RPostgres`, which vary by platform.
+1. Required system dependencies for the R package `RPostgres`, which vary by
+   platform.
 1. RStudio
 1. Docker
 1. Command-line shell capable of running Bourne shell scripts (e.g. `bash`), to
