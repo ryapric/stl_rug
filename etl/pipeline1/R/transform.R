@@ -8,7 +8,7 @@ get_annual_sales <- function(df_in) {
         ungroup()
     # Uncomment the following line to force validation failure
     # df_out$sales[25] <- 1000000000000000
-    validate_get_annual_sales(df_out)
+    # validate_get_annual_sales(df_out)
     df_out
 }
 
