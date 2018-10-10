@@ -1,3 +1,11 @@
+#' Validate annual sales calculations
+#'
+#' @param df_in Data frame of calculated sales
+validate_get_annual_sales <- function(df_in) {
+    # but like... it's the same logic
+}
+
+
 #' Validate platform market share calculations
 #'
 #' @param df_in Data frame of calculated market shares
