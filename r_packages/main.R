@@ -2,6 +2,7 @@
 rm(list = ls())
 gc()
 
+library(DBI)
 library(forecast)
 library(glue)
 library(lubridate)
@@ -64,9 +65,9 @@ colnames(df_fcast)[which(colnames(df_fcast) == 'FRED_ID')] <- fred_id
 # Build final output, and write to DB
 df_out <- data.table::rbindlist(list(df_0, df_fcast), fill = TRUE)
 
-con <- dbConnect(RSQLite::SQLite(), './fcast.db')
-dbWriteTable(con, glue('fcast_{fred_id}'), df_out, overwrite = TRUE)
-dbDisconnect(con)
+con <- DBI::dbConnect(RSQLite::SQLite(), './fcast.db')
+DBI::dbWriteTable(con, glue::glue('fcast_{fred_id}'), df_out, overwrite = TRUE)
+DBI::dbDisconnect(con)
 
 # Plot, for interactive use
 plot(fcast)
