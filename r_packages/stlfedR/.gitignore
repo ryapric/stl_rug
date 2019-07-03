@@ -2,7 +2,7 @@
 *.json
 *.csv
 *.txt
-*.db
+*.db*
 *.rds
 *.html
 .Rproj.user
